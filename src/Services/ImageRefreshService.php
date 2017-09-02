@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ImageRefreshService
 {
     /**
-     * The laravel application instance.
+     * The lumen application instance.
      *
      * @var Application
      */

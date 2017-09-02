@@ -7,7 +7,7 @@ use Codesleeve\Stapler\Stapler;
 use Codesleeve\LaravelStapler\Commands\FastenCommand;
 use Config;
 
-class L4ServiceProvider extends ServiceProvider
+class LumenStaplerServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -15,24 +15,35 @@ class L4ServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
-
+    
+    private function config_path($path = '')
+    {
+        return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
+    }
     /**
      * Bootstrap the application events.
      */
     public function boot()
     {
-        $this->package('expstudio/lumen-stapler', null, dirname(__DIR__));
-        $this->bootstrapStapler();
-    }
+        $packageRoot = dirname(__DIR__);
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [];
+        // config
+        $this->publishes([
+            $packageRoot.'/config/filesystem.php' => config_path('lumen-stapler/filesystem.php'),
+            $packageRoot.'/config/s3.php' => config_path('lumen-stapler/s3.php'),
+            $packageRoot.'/config/stapler.php' => config_path('lumen-stapler/stapler.php'),
+            $packageRoot.'/config/bindings.php' => config_path('lumen-stapler/bindings.php'),
+        ]);
+
+        $this->mergeConfigFrom($packageRoot.'/config/filesystem.php', 'lumen-stapler.filesystem');
+        $this->mergeConfigFrom($packageRoot.'/config/s3.php', 'lumen-stapler.s3');
+        $this->mergeConfigFrom($packageRoot.'/config/stapler.php', 'lumen-stapler.stapler');
+        $this->mergeConfigFrom($packageRoot.'/config/bindings.php', 'lumen-stapler.bindings');
+
+        // views
+        $this->loadViewsFrom($packageRoot.'/views', 'lumen-stapler');
+
+        $this->bootstrapStapler();
     }
 
     /**
@@ -46,7 +57,7 @@ class L4ServiceProvider extends ServiceProvider
     {
         Stapler::boot();
 
-        $config = new IlluminateConfig(Config::getFacadeRoot(), 'lumen-stapler');
+        $config = new IlluminateConfig(Config::getFacadeRoot(), 'lumen-stapler', '.');
         Stapler::setConfigInstance($config);
 
         if (!$config->get('stapler.public_path')) {
@@ -64,17 +75,9 @@ class L4ServiceProvider extends ServiceProvider
     protected function registerStaplerFastenCommand()
     {
         $this->app->bind('stapler.fasten', function ($app) {
-            $migrationsFolderPath = app_path().'/database/migrations';
+            $migrationsFolderPath = base_path().'/database/migrations';
 
             return new FastenCommand($app['view'], $app['files'], $migrationsFolderPath);
         });
-    }
-
-    /**
-     * Register the the migrations folder path with the container.
-     */
-    protected function registerMigrationFolderPath()
-    {
-        $this->app->bind('migration_folder_path', app_path().'/database/migrations');
     }
 }

@@ -12,8 +12,8 @@ abstract class ServiceProvider extends BaseServiceProvider
      * Bootstrap up the stapler package:
      * - Boot stapler.
      * - Set the config driver.
-     * - Set public_path config using laravel's public_path() method (if necessary).
-     * - Set base_path config using laravel's base_path() method (if necessary).
+     * - Set public_path config using lumen's public_path() method (if necessary).
+     * - Set base_path config using lumen's base_path() method (if necessary).
      */
     abstract protected function bootstrapStapler();
 

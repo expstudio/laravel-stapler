@@ -21,7 +21,7 @@ class LaravelStaplerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('codesleeve/laravel-stapler', null, __DIR__);
+        $this->package('expstudio/lumen-stapler', null, __DIR__);
         $this->bootstrapStapler();
     }
 
@@ -58,14 +58,14 @@ class LaravelStaplerServiceProvider extends ServiceProvider
      * Bootstrap up the stapler package:
      * - Boot stapler.
      * - Set the config driver.
-     * - Set public_path config using laravel's public_path() method (if necessary).
-     * - Set base_path config using laravel's base_path() method (if necessary).
+     * - Set public_path config using lumen's public_path() method (if necessary).
+     * - Set base_path config using lumen's base_path() method (if necessary).
      */
     protected function bootstrapStapler()
     {
         Stapler::boot();
 
-        $config = new IlluminateConfig(Config::getFacadeRoot(), 'laravel-stapler');
+        $config = new IlluminateConfig(Config::getFacadeRoot(), 'lumen-stapler');
         Stapler::setConfigInstance($config);
 
         if (!$config->get('stapler.public_path')) {

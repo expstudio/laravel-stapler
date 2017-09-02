@@ -105,7 +105,7 @@ class FastenCommand extends Command
         $data['className'] = 'Add'.ucfirst(Str::camel($data['attachment'])).'FieldsTo'.ucfirst(Str::camel($data['table'])).'Table';
 
         // Save the new migration to disk using the stapler migration view.
-        $migration = $this->view->make('laravel-stapler::migration', $data)->render();
+        $migration = $this->view->make('lumen-stapler::migration', $data)->render();
         $this->file->put($fileName, $migration);
 
         // Dump the autoloader and print a created migration message to the console.

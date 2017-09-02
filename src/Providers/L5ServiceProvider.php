@@ -25,19 +25,19 @@ class L5ServiceProvider extends ServiceProvider
 
         // config
         $this->publishes([
-            $packageRoot.'/config/filesystem.php' => config_path('laravel-stapler/filesystem.php'),
-            $packageRoot.'/config/s3.php' => config_path('laravel-stapler/s3.php'),
-            $packageRoot.'/config/stapler.php' => config_path('laravel-stapler/stapler.php'),
-            $packageRoot.'/config/bindings.php' => config_path('laravel-stapler/bindings.php'),
+            $packageRoot.'/config/filesystem.php' => config_path('lumen-stapler/filesystem.php'),
+            $packageRoot.'/config/s3.php' => config_path('lumen-stapler/s3.php'),
+            $packageRoot.'/config/stapler.php' => config_path('lumen-stapler/stapler.php'),
+            $packageRoot.'/config/bindings.php' => config_path('lumen-stapler/bindings.php'),
         ]);
 
-        $this->mergeConfigFrom($packageRoot.'/config/filesystem.php', 'laravel-stapler.filesystem');
-        $this->mergeConfigFrom($packageRoot.'/config/s3.php', 'laravel-stapler.s3');
-        $this->mergeConfigFrom($packageRoot.'/config/stapler.php', 'laravel-stapler.stapler');
-        $this->mergeConfigFrom($packageRoot.'/config/bindings.php', 'laravel-stapler.bindings');
+        $this->mergeConfigFrom($packageRoot.'/config/filesystem.php', 'lumen-stapler.filesystem');
+        $this->mergeConfigFrom($packageRoot.'/config/s3.php', 'lumen-stapler.s3');
+        $this->mergeConfigFrom($packageRoot.'/config/stapler.php', 'lumen-stapler.stapler');
+        $this->mergeConfigFrom($packageRoot.'/config/bindings.php', 'lumen-stapler.bindings');
 
         // views
-        $this->loadViewsFrom($packageRoot.'/views', 'laravel-stapler');
+        $this->loadViewsFrom($packageRoot.'/views', 'lumen-stapler');
 
         $this->bootstrapStapler();
     }
@@ -46,14 +46,14 @@ class L5ServiceProvider extends ServiceProvider
      * Bootstrap up the stapler package:
      * - Boot stapler.
      * - Set the config driver.
-     * - Set public_path config using laravel's public_path() method (if necessary).
-     * - Set base_path config using laravel's base_path() method (if necessary).
+     * - Set public_path config using lumen's public_path() method (if necessary).
+     * - Set base_path config using lumen's base_path() method (if necessary).
      */
     protected function bootstrapStapler()
     {
         Stapler::boot();
 
-        $config = new IlluminateConfig(Config::getFacadeRoot(), 'laravel-stapler', '.');
+        $config = new IlluminateConfig(Config::getFacadeRoot(), 'lumen-stapler', '.');
         Stapler::setConfigInstance($config);
 
         if (!$config->get('stapler.public_path')) {

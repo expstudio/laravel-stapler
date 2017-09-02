@@ -1,25 +1,25 @@
 {
-    "name": "codesleeve/laravel-stapler",
-    "description": "Easy file upload management for the Laravel Framework.",
-    "keywords": ["laravel", "file", "upload", "S3", "AWS", "stapler", "paperclip"],
+    "name": "expstudio/lumen-stapler",
+    "description": "Easy file upload management for the Lumen Framework.",
+    "keywords": ["laravel", "lumen", "file", "upload", "S3", "AWS", "stapler", "paperclip"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Travis Bennett",
-            "email": "tandrewbennett@hotmail.com"
+            "name": "Watee Wichiennit",
+            "email": "expstudio@gmail.com"
         }
     ],
     "require": {
         "php": ">=5.4.0",
         "codesleeve/stapler": "1.2.*",
-        "laravel/framework": "4.*|5.*"
+        "laravel/lumen-framework": "5.4.*",
     },
     "autoload": {
         "classmap": [
             "src/migrations"
         ],
         "psr-4": {
-            "Codesleeve\\LaravelStapler\\": "src/"
+            "Expstudio\\LumenStapler\\": "src/"
         }
     },
     "minimum-stability": "stable"
