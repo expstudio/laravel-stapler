@@ -1,11 +1,11 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Commands;
+namespace Expstudio\LumenStapler\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
-use Codesleeve\LaravelStapler\Services\ImageRefreshService;
+use Expstudio\LumenStapler\Services\ImageRefreshService;
 
 class RefreshCommand extends Command
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Providers;
+namespace Expstudio\LumenStapler\Providers;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Codesleeve\LaravelStapler\Commands\RefreshCommand;
-use Codesleeve\LaravelStapler\Services\ImageRefreshService;
+use Expstudio\LumenStapler\Commands\RefreshCommand;
+use Expstudio\LumenStapler\Services\ImageRefreshService;
 
 abstract class ServiceProvider extends BaseServiceProvider
 {

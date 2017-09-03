@@ -4,7 +4,7 @@ namespace Expstudio\LumenStapler\Providers;
 
 use Codesleeve\LaravelStapler\IlluminateConfig;
 use Codesleeve\Stapler\Stapler;
-use Codesleeve\LaravelStapler\Commands\FastenCommand;
+use Expstudio\LumenStapler\Commands\FastenCommand;
 use Config;
 
 class LumenStaplerServiceProvider extends ServiceProvider

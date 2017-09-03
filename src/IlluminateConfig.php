@@ -1,6 +1,6 @@
 <?php
 
-namespace Codesleeve\LaravelStapler;
+namespace Expstudio\LumenStapler;
 
 use Codesleeve\Stapler\Interfaces\Config;
 use Illuminate\Contracts\Config\Repository;

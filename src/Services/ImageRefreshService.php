@@ -1,10 +1,10 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Services;
+namespace Expstudio\LumenStapler\Services;
 
-use Codesleeve\LaravelStapler\Exceptions\InvalidClassException;
+use Expstudio\LumenStapler\Exceptions\InvalidClassException;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Application;
+use Laravel\Lumen\Application;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;

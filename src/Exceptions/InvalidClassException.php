@@ -1,6 +1,6 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Exceptions;
+namespace Expstudio\LumenStapler\Exceptions;
 
 use Exception;
 

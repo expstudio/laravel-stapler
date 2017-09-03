@@ -1,6 +1,6 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Commands;
+namespace Expstudio\LumenStapler\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
