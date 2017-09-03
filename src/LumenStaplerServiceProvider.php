@@ -1,6 +1,6 @@
 <?php
 
-namespace Expstudio\LumenStapler\Providers;
+namespace Expstudio\LumenStapler;
 
 use Expstudio\LumenStapler\IlluminateConfig;
 use Codesleeve\Stapler\Stapler;
