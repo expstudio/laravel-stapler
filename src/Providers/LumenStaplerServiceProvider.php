@@ -1,6 +1,6 @@
 <?php
 
-namespace Codesleeve\LaravelStapler\Providers;
+namespace Expstudio\LumenStapler\Providers;
 
 use Codesleeve\LaravelStapler\IlluminateConfig;
 use Codesleeve\Stapler\Stapler;
@@ -15,7 +15,7 @@ class LumenStaplerServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
-    
+
     private function config_path($path = '')
     {
         return app()->basePath() . '/config' . ($path ? '/' . $path : $path);

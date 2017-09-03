@@ -38,20 +38,12 @@ Once this operation completes, the final step is to add the service provider.
 
 For Lumen 5.4, Open `config/app.php`, and add a new item to the providers array:
 ```php
-    'expstudio\LumenStapler\Providers\LumenStaplerServiceProvider'
+    'Expstudio\LumenStapler\Providers\LumenStaplerServiceProvider'
 ```
 
-## Deprecations
-As of 1.0.04, the 'expstudio\LumenStapler\LumenStaplerServiceProvider' service provider has been deprecated
-(this provider will be removed in the next major release).  Instead, you should now be using the corresponding service provider for the specific version
-of Lumen that you're using.
+* In your models that are using Stapler, change `use Codesleeve\Stapler\Stapler` to `use Codesleeve\Stapler\ORM\EloquentTrait`.  Your models will also need to implement `Codesleeve\Stapler\ORM\StaplerableInterface`.
 
-## migrating-from-Stapler-v1.0.0-Beta4
-If you've been using Stapler (prior to v1.0.0-Beta4) in your Lumen app, you now need to be using this package instead.  Uninstall Stapler (remove it from your composer.json, remove the service provider, etc) and install this package following the instructions above.  Once installed, the following changes may need need to be made in your application:
-
-* In your models that are using Stapler, change `use expstudio\Stapler\Stapler` to `use expstudio\Stapler\ORM\EloquentTrait`.  Your models will also need to implement `expstudio\Stapler\ORM\StaplerableInterface`.
-
-* If you published stapler's config, you'll need to rename config folder from `app/config/packages/expstudio/stapler` to `app/config/packages/expstudio/Lumen-stapler`.
+* If you published stapler's config, you'll need to rename config folder from `app/config/packages/expstudio/stapler` to `app/config/packages/expstudio/lumen-stapler`.
 
 * Image processing libraries are now referenced by their full class name from the [Imagine Image](https://github.com/avalanche123/Imagine) package (e.g `gd` is now reference by `Imagine\Gd\Imagine`).
 
@@ -68,8 +60,8 @@ grant your application write permissions to it.  For this, we're assuming the ex
 In your model:
 
 ```php
-use expstudio\Stapler\ORM\StaplerableInterface;
-use expstudio\Stapler\ORM\EloquentTrait;
+use Codesleeve\Stapler\ORM\StaplerableInterface;
+use Codesleeve\Stapler\ORM\EloquentTrait;
 
 class User extends Eloquent implements StaplerableInterface {
 	use EloquentTrait;
@@ -161,7 +153,7 @@ Reprocess a list of attachments on the ProfilePicture model:
 `php artisan stapler:refresh TestPhoto --attachments="foo, bar, baz, etc"`
 
 ## Troubleshooting
-Before you submit an issue or create a pull request, please take a look at the [Troubleshooting Section](https://github.com/expstudio/stapler/blob/master/docs/troubleshooting.md) section of the Stapler package.
+Before you submit an issue or create a pull request, please take a look at the [Troubleshooting Section](https://github.com/codesleeve/stapler/blob/master/docs/troubleshooting.md) section of the Stapler package.
 There's a very good chance that many (if not all) of the issues you're having with this package are related to the base stapler package and have already been addressed there.
 
 ## Contributing
