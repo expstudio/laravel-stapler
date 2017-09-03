@@ -37,8 +37,8 @@ Install the package using Composer.  Edit your project's `composer.json` file to
 Once this operation completes, the final step is to add the service provider.
 
 For Lumen 5.4, Open `config/app.php`, and add a new item to the providers array:
-```php
-    'Expstudio\LumenStapler\Providers\LumenStaplerServiceProvider'
+```php  
+	$app->register(Expstudio\LumenStapler\Providers\LumenStaplerServiceProvider::Class);
 ```
 
 * In your models that are using Stapler, change `use Codesleeve\Stapler\Stapler` to `use Codesleeve\Stapler\ORM\EloquentTrait`.  Your models will also need to implement `Codesleeve\Stapler\ORM\StaplerableInterface`.
