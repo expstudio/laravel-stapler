@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "codesleeve/stapler": "1.2.*",
+        "expstudio/stapler": "2.0.*",
         "laravel/lumen-framework": "5.4.*"
     },
     "autoload": {
